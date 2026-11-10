@@ -1,0 +1,6 @@
+alternativa,descricao,renovavel,investimento_rs,kwh_evitados_mes,economia_ano1_rs,saldo_liquido_rs,vpl_rs,payback_anos,rs_por_kwh_evitado,co2_evitado_kg,co2_liquido_ciclo_vida_kg
+A,Eficiência: banho mais curto + restritor de vazão,False,40,19.93,263.12,3428.13,1996.22,0.15,0.017,92.1,
+B,Renovável térmica: aquecedor solar de água,True,4500.0,55.81,691.74,4760.77,924.92,5.61,0.739,257.9,
+C,Renovável elétrica: energia solar fotovoltaica,True,3200.0,79.73,895.23,8401.72,3630.44,3.34,0.376,360.2,-70.9
+A+B,Combinação: eficiência (A) + aquecedor solar (B),True,4540.0,61.79,770.67,5761.21,1495.79,5.16,0.673,285.5,
+A+C,Combinação: eficiência (A) + fotovoltaico menor (C),True,2440.0,79.73,934.55,9644.3,4676.89,2.5,0.286,360.2,36.9

@@ -1,0 +1,40 @@
+{
+  "_aviso": "tipo = 'publico' (dado de fonte pública), 'fisico' (constante física) ou 'estimado' (premissa do grupo, justificada). Itens com verificar=true DEVEM ser conferidos pelo grupo antes da entrega.",
+  "parametros": {
+    "n_pessoas":            {"valor": 4,     "unidade": "pessoas",        "tipo": "estimado", "verificar": false, "fonte": "Perfil de família típica adotado pelo grupo (persona).", "obs": "O usuário pode informar o próprio valor no assistente."},
+    "banhos_dia_pessoa":    {"valor": 1,     "unidade": "banhos/dia",     "tipo": "estimado", "verificar": false, "fonte": "Premissa do grupo.", "obs": ""},
+    "dias_mes":             {"valor": 30,    "unidade": "dias",           "tipo": "estimado", "verificar": false, "fonte": "Mês comercial.", "obs": ""},
+    "duracao_banho_min":    {"valor": 8,     "unidade": "min",            "tipo": "estimado", "verificar": true,  "fonte": "Premissa do grupo (banho médio).", "obs": "Confirmar com pesquisa/teste com usuários."},
+    "vazao_l_min":          {"valor": 3.5,   "unidade": "L/min",          "tipo": "estimado", "verificar": true,  "fonte": "Vazão típica de chuveiro elétrico (~3 a 5 L/min).", "obs": "Medir em casa com balde e cronômetro."},
+    "temp_agua_fria_c":     {"valor": 19,    "unidade": "°C",             "tipo": "estimado", "verificar": true,  "fonte": "Média anual aproximada da água da rede na Grande São Paulo.", "obs": "No inverno é menor (mais energia)."},
+    "temp_banho_c":         {"valor": 39,    "unidade": "°C",             "tipo": "estimado", "verificar": false, "fonte": "Temperatura de conforto adotada.", "obs": ""},
+    "calor_especifico_agua":{"valor": 4.186, "unidade": "kJ/(kg·K)",      "tipo": "fisico",   "verificar": false, "fonte": "Constante física.", "obs": ""},
+    "eficiencia_chuveiro":  {"valor": 0.98,  "unidade": "fração",         "tipo": "estimado", "verificar": false, "fonte": "Resistência elétrica converte quase toda a energia em calor.", "obs": ""},
+
+    "tarifa_kwh":           {"valor": 1.10,  "unidade": "R$/kWh",         "tipo": "estimado", "verificar": true,  "fonte": "Estimada a partir da tarifa B1 da Enel SP (R$ 725,18/MWh sem tributos em 2025, Exame), reajuste médio de 10,18% em jul/2026 (ANEEL), mais ICMS, PIS/COFINS e bandeira.", "obs": "SUBSTITUIR pelo valor da conta de luz (R$/kWh com impostos). Valor exato B1 2026 não foi confirmado."},
+    "escalada_tarifa_aa":   {"valor": 0.06,  "unidade": "a.a.",           "tipo": "estimado", "verificar": true,  "fonte": "Premissa do grupo (reajustes recentes variaram de ~3% a ~14% ao ano).", "obs": "Cenário conservador; testar 0%."},
+    "taxa_desconto_aa":     {"valor": 0.10,  "unidade": "a.a.",           "tipo": "estimado", "verificar": false, "fonte": "Custo de oportunidade adotado pelo grupo.", "obs": ""},
+    "horizonte_anos":       {"valor": 10,    "unidade": "anos",           "tipo": "estimado", "verificar": false, "fonte": "Período de referência comum a todas as alternativas.", "obs": "Valor residual dos equipamentos após 10 anos NÃO é considerado (conservador)."},
+
+    "A_duracao_banho_min":  {"valor": 6,     "unidade": "min",            "tipo": "estimado", "verificar": false, "fonte": "Meta de redução do tempo de banho (alternativa A).", "obs": ""},
+    "A_vazao_l_min":        {"valor": 3.0,   "unidade": "L/min",          "tipo": "estimado", "verificar": true,  "fonte": "Vazão com restritor/arejador (alternativa A).", "obs": ""},
+    "A_adesao":             {"valor": 0.70,  "unidade": "fração",         "tipo": "estimado", "verificar": false, "fonte": "Parte da meta efetivamente cumprida no dia a dia (hábito não é 100%).", "obs": "Evita tratar a economia como garantida."},
+    "A_custo_rs":           {"valor": 40,    "unidade": "R$",             "tipo": "estimado", "verificar": true,  "fonte": "Restritor de vazão/arejador (pesquisar preço em loja).", "obs": ""},
+
+    "B_fracao_solar":       {"valor": 0.70,  "unidade": "fração",         "tipo": "estimado", "verificar": true,  "fonte": "Fração solar anual típica de aquecedor solar em SP (~60 a 80%); o resto é apoio elétrico.", "obs": "Conferir em material do Procel/INMETRO ou ABRAVA."},
+    "B_custo_rs":           {"valor": 4500,  "unidade": "R$",             "tipo": "estimado", "verificar": true,  "fonte": "Sistema compacto (coletores + reservatório) instalado; pedir 3 orçamentos.", "obs": "Valor NÃO confirmado em fonte pública."},
+    "B_manutencao_aa":      {"valor": 0.01,  "unidade": "fração do capex/ano", "tipo": "estimado", "verificar": false, "fonte": "Premissa do grupo.", "obs": ""},
+    "B_vida_util_anos":     {"valor": 15,    "unidade": "anos",           "tipo": "estimado", "verificar": false, "fonte": "Premissa do grupo.", "obs": ""},
+
+    "C_produtividade_kwh_kwp_mes": {"valor": 112, "unidade": "kWh/kWp·mês", "tipo": "estimado", "verificar": true, "fonte": "~1.340 kWh/kWp/ano (irradiação ~4,6 kWh/m²/dia x desempenho 0,80). Conferir no CRESESB/SunData para o CEP.", "obs": ""},
+    "C_custo_wp_rs":        {"valor": 4.00,  "unidade": "R$/Wp",          "tipo": "publico",  "verificar": true,  "fonte": "Média nacional R$ 2,45/Wp no 1T2026 (Solfácil/Cenário Energia); faixa instalada R$ 3,40 a 4,20/Wp (UAI, out/2026). Sistemas muito pequenos custam mais por Wp; adotado valor conservador.", "obs": ""},
+    "C_manutencao_aa":      {"valor": 0.01,  "unidade": "fração do capex/ano", "tipo": "estimado", "verificar": false, "fonte": "Limpeza/inspeção; premissa do grupo.", "obs": ""},
+    "C_degradacao_aa":      {"valor": 0.005, "unidade": "a.a.",           "tipo": "estimado", "verificar": true,  "fonte": "Perda típica de ~0,5%/ano dos módulos.", "obs": ""},
+    "C_perc_injecao":       {"valor": 0.70,  "unidade": "fração",         "tipo": "estimado", "verificar": false, "fonte": "Parte da geração que vai para a rede (banho é de manhã/noite).", "obs": ""},
+    "C_fator_credito":      {"valor": 0.83,  "unidade": "fração da tarifa", "tipo": "estimado", "verificar": true, "fonte": "Energia injetada gera crédito, descontada a cobrança escalonada do Fio B (60% em 2026, Lei 14.300/2022, segundo Monitor do Mercado). Fio B assumido ~28% da tarifa.", "obs": "Premissa a confirmar na REN 1.059/ANEEL."},
+    "C_vida_util_anos":     {"valor": 25,    "unidade": "anos",           "tipo": "estimado", "verificar": false, "fonte": "Garantia de desempenho típica dos módulos.", "obs": ""},
+
+    "emissao_rede_g_kwh":   {"valor": 38.5,  "unidade": "gCO2/kWh",       "tipo": "publico",  "verificar": false, "fonte": "Fator médio do SIN 2023: 0,0385 tCO2/MWh (MCTI/SIRENE). Em 2025 os meses ficaram entre ~21 e ~29 g/kWh.", "obs": ""},
+    "emissao_ciclo_pv_g_kwh": {"valor": 41,  "unidade": "gCO2e/kWh",      "tipo": "publico",  "verificar": true,  "fonte": "Mediana de ciclo de vida de FV de telhado (IPCC AR5, WGIII, Anexo III).", "obs": "Conferir valor no relatório."}
+  }
+}

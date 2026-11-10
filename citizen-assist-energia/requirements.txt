@@ -1,0 +1,3 @@
+# O módulo usa apenas a biblioteca padrão do Python 3.10+.
+# Apenas para rodar os testes automáticos:
+pytest>=7
